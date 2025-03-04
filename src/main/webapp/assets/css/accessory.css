@@ -1,0 +1,66 @@
+.content-accessory{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  
+  .content-accessory .item-category .item{
+    display: flex;
+    margin-bottom: 50px;
+  }
+  .content-accessory .item-category .item li{
+    margin-left: 10px;
+    font-size: 13px;
+  }
+  .content-accessory .item-category h1{
+   margin-bottom: 50px;
+  }
+  .criteria{
+    width: 230px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    height: 30px;
+    padding:3px 0 0 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+
+  .product {
+    margin: 10px 0;
+  }
+  .hidden {
+    display: none;
+  }
+
+  .content-accessory .block-item{
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 30px;
+  }
+  .content-accessory .block-item .one-item{
+    box-sizing: border-box;
+   overflow: hidden;
+   border-radius: 5px;
+    width: 200px;
+    height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+  .content-accessory .one-item .text-one-block{
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+
+  .content-accessory .one-item .text-one-block span{
+    color: red;
+  }
+  .content-accessory .block-item .one-item a img{
+    transition: 0.3s;
+  }
+  .content-accessory .block-item .one-item a img:hover{
+    transform: scale(1.1);
+  }
