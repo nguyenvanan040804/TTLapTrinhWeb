@@ -22,9 +22,12 @@
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
+                            <a href="addProduct.jsp">
                             <i class="fas fa-plus-square fa-3x text-primary"></i><br>
                             <h5>Thêm xe đạp</h5>
+
                             -----------------
+                            </a>
                         </div>
                     </div>
                 </div>

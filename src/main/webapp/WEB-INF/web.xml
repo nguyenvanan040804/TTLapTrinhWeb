@@ -35,4 +35,13 @@
         <url-pattern>/assets/brands/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>vn.edu.hcmuaf.fit.demo.controller.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/admin/add-product</url-pattern>
+    </servlet-mapping>
+
 </web-app>

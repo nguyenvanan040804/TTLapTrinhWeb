@@ -35,6 +35,8 @@ public class Product {
         this.cateId = cateId;
     }
 
+
+
     public int getId() {
         return id;
     }

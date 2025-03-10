@@ -1,8 +1,12 @@
 package vn.edu.hcmuaf.fit.demo.dao.impl;
 
-import vn.edu.hcmuaf.fit.demo.dao.IObjectDao;
-import vn.edu.hcmuaf.fit.demo.db.DBConnect;
-import vn.edu.hcmuaf.fit.demo.model.Product;
+//import vn.edu.hcmuaf.fit.demo.dao.IObjectDao;
+//import vn.edu.hcmuaf.fit.demo.db.DBConnect;
+//import vn.edu.hcmuaf.fit.demo.model.Product;
+
+import vn.edu.hcmuaf.fit.demo.dao.*;
+import vn.edu.hcmuaf.fit.demo.db.*;
+import vn.edu.hcmuaf.fit.demo.model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,8 +22,10 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         this.conn = conn;
     }
 
+
+
     @Override
-    public boolean add(Product product) {
+    public  boolean add(Product product) {
         String sql = "insert into products (proName, price, description, thumb, quantity, cateId) " +
                 "values (?, ?, ?, ?, ?, ?)";
         try {
