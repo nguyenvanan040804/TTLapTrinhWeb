@@ -138,10 +138,10 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         return images;
     }
 
-    public static void main(String[] args) {
-        ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
-        System.out.println(productDao.getProductImages(1));
-    }
+//    public static void main(String[] args) {
+//        ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
+//        System.out.println(productDao.getProductImages(1));
+//    }
     public List<Product> getProductsByCategory(int cateId) {
         List<Product> products = new ArrayList<>();
         String sql = "SELECT * FROM products WHERE cateId = ?";
@@ -162,11 +162,15 @@ public class ProductDaoImpl implements IObjectDao<Product> {
                 );
                 products.add(product);
             }
-            System.out.println("DEBUG: Lấy được " + products.size() + " sản phẩm từ DB");
+            System.out.println("DEBUG: Lấy được " + products.size() + " sản phẩm từ DB cho danh mục " + cateId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return products;
+    }
+
+    public static void main(String[] args) {
+        ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
+        List<Product> products = productDao.getProductsByCategory(1);
     }
 }

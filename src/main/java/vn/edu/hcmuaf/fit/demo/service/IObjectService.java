@@ -12,4 +12,6 @@ public interface IObjectService<T> {
     boolean deleteById(int id);
 
     boolean update(T obj);
+
+
 }

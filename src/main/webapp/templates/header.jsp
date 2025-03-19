@@ -151,7 +151,7 @@
                                     <c:when test="${not empty categories}">
                                         <c:forEach var="category" items="${categories}">
                                             <li class="has-child beauty">
-                                                <a href="pageCategory.jsp?categoryId=${category.id}" data-id="children-${category.id}">
+                                                <a href="category?cateId=${category.id}">
                                                 <div class="icon-large" style="font-size: 0.3em; margin-right: 3em;">
                                                         <i class="ri-circle-fill"></i>
                                                     </div>
