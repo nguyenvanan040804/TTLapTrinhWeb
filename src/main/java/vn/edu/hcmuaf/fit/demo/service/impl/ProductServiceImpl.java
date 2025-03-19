@@ -38,6 +38,12 @@ public class ProductServiceImpl implements IObjectService<Product> {
         return productDao.getProductImages(productId);
     }
 
+    public List<Product> getProductsByCategory(int cateId) {
+        List<Product> products = productDao.getProductsByCategory(cateId);
+        System.out.println("DEBUG: Service nhận được " + products.size() + " sản phẩm từ DAO");
+        return products;
+    }
+
     public static void main(String[] args) {
         ProductServiceImpl productService = new ProductServiceImpl();
         System.out.println(productService.getAll());

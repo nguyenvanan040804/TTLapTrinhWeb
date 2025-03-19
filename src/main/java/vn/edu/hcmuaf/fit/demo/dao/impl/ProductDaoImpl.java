@@ -104,7 +104,8 @@ public class ProductDaoImpl implements IObjectDao<Product> {
     public boolean update(Product product) {
         String sql = "update products set "
                 + "proName = ?, price = ?, description = ?, thumb = ?, "
-                + "cateId = ? WHERE id = ?";
+                + "quantity = ?, cateId = ? WHERE id = ?";
+
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, product.getProName());
@@ -137,8 +138,39 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         return images;
     }
 
+//    public static void main(String[] args) {
+//        ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
+//        System.out.println(productDao.getProductImages(1));
+//    }
+    public List<Product> getProductsByCategory(int cateId) {
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT * FROM products WHERE cateId = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, cateId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Product product = new Product(
+                        rs.getInt("id"),
+                        rs.getString("proName"),
+                        rs.getInt("price"),
+                        rs.getString("description"),
+                        rs.getString("thumb"),
+                        rs.getInt("quantity"),
+                        rs.getInt("cateId")
+                );
+                products.add(product);
+            }
+            System.out.println("DEBUG: Lấy được " + products.size() + " sản phẩm từ DB cho danh mục " + cateId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return products;
+    }
+
     public static void main(String[] args) {
         ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
-        System.out.println(productDao.getProductImages(1));
+        List<Product> products = productDao.getProductsByCategory(1);
     }
 }

@@ -83,7 +83,7 @@
                                 <div class="form-group">
                                     <label class="form-label">Ngày Tạo</label>
                                     <input type="date" class="form-control" value="2022-11-10">
-                                </div>                                
+                                </div>
                             </div>
                         </div>
 
@@ -91,15 +91,15 @@
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Mật khẩu hiện tại</label>
-                                    <input type="password" class="form-control" name="currentssword" readonly>
+                                    <input type="password" class="form-control" name="currentssword" >
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Mật khẩu mới</label>
-                                    <input type="password" class="form-control" name="newPassword" readonly>
+                                    <input type="password" class="form-control" name="newPassword" >
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Nhập lại mật khẩu mới</label>
-                                    <input type="password" class="form-control" name="confirmPassword" readonly>
+                                    <input type="password" class="form-control" name="confirmPassword" >
                                 </div>
                             </div>
                         </div>

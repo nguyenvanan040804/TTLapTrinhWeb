@@ -35,17 +35,17 @@ public class UpdateAccountInfoController extends HttpServlet {
 
         // Kiểm tra null và xử lý
 
-        fullName = (fullName != null) ? fullName.trim() : "";
-        address = (address != null) ? address.trim() : "";
-        email = (email != null) ? email.trim() : "";
+//        fullName = (fullName != null) ? fullName.trim() : "";
+//        address = (address != null) ? address.trim() : "";
+//        email = (email != null) ? email.trim() : "";
 
 
         // Kiểm tra định dạng email
-        if (!email.matches("^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) {
-            request.setAttribute("error", "Địa chỉ email không hợp lệ.");
-            request.getRequestDispatcher("pageUser.jsp").forward(request, response);
-            return;
-        }
+//        if (!email.matches("^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) {
+//            request.setAttribute("error", "Địa chỉ email không hợp lệ.");
+//            request.getRequestDispatcher("pageUser.jsp").forward(request, response);
+//            return;
+//        }
 
         try {
             // Cập nhật thông tin người dùng

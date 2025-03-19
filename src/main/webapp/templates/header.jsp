@@ -90,78 +90,7 @@
                         <ul class="flexitem second-links">
                             <li><a href="#">Trang Chủ</a></li>
                             <li><a href="#">Cửa Hàng</a></li>
-                            <li class="has-child">
-                                <a href="#">Sản Phẩm
-                                    <div class="icon-small"><i class="ri-arrow-down-s-line"></i></div>
-                                </a>
-                                <div class="mega">
-                                    <div class="container">
-                                        <div class="wrapper">
-                                            <div class="flexcol">
-                                                <div class="row">
-                                                    <h4>Xe Đạp</h4>
-                                                    <ul>
-                                                        <li><a href="#" data-id="children">Xe đạp trẻ em</a></li>
-                                                        <li><a href="#" data-id="racing">Xe đạp đua</a></li>
-                                                        <li><a href="#" data-id="sporty">Xe đạp thể thao</a></li>
-                                                        <li><a href="#" data-id="terrain">Xe đạp địa hình</a></li>
-                                                        <li><a href="#" data-id="school">Xe đạp học sinh</a></li>
-                                                        <li><a href="#" data-id="tour">Xe đạp touring</a></li>
-                                                        <li><a href="#" data-id="elec">Xe đạp điện</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="flexcol">
-                                                <div class="row">
-                                                    <h4>Phụ Kiện Cho Người Đạp</h4>
-                                                    <ul>
-                                                        <li><a href="#">Áo</a></li>
-                                                        <li><a href="#">Balo-túi</a></li>
-                                                        <li><a href="#">Găng tay</a></li>
-                                                        <li><a href="#">Giày</a></li>
-                                                        <li><a href="#">Mắt kính</a></li>
-                                                        <li><a href="#">Nón bảo hiểm</a></li>
-                                                        <li><a href="#">Nói lưỡi trai</a></li>
-                                                        <li><a href="#">Bao tay</a></li>
-                                                        <li><a href="#">Quần</a></li>
-                                                        <li><a href="#">Vớ</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="flexcol">
-                                                <div class="row">
-                                                    <h4>Các Hãng Xe</h4>
-                                                    <ul>
-                                                        <li><a href="#">Giant</a></li>
-                                                        <li><a href="#">Vinbike</a></li>
-                                                        <li><a href="#">Momentun</a></li>
-                                                        <li><a href="#">Max</a></li>
-                                                        <li><a href="#">TrinX</a></li>
-                                                        <li><a href="#">Liv</a></li>
-                                                        <li><a href="#">Miamor</a></li>
-                                                        <li><a href="#">Jeep</a></li>
-                                                        <li><a href="#">Royal Baby</a></li>
-                                                        <li><a href="#">Simamo</a></li>
-                                                        <li><a href="#">Active</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="flexcol products">
-                                                <div class="row">
-                                                    <div class="media">
-                                                        <div class="thumbnail object-cover">
-                                                            <a href="#">
-                                                                <img src="./assets/img/Xe-dap-tre-em.jpg"
-                                                                     alt="">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+<%--                            --%>
                             <li><a href="../../../page-service.jsp">Dịch Vụ</a></li>
                             <li>
                                 <a href="#">Thể Thao
@@ -218,28 +147,27 @@
                         </div>
                         <div class="dpt-menu">
                             <ul class="second-links">
-                                <%-- Kiểm tra danh sách danh mục có dữ liệu hay không --%>
                                 <c:choose>
                                     <c:when test="${not empty categories}">
-                                        <%-- Hiển thị danh sách danh mục --%>
                                         <c:forEach var="category" items="${categories}">
                                             <li class="has-child beauty">
-                                                <a href="products?categoryId=${category.id}" data-id="children">
-                                                    <div class="icon-large" style="font-size: 0.3em; margin-right: 3em;">
+                                                <a href="category?cateId=${category.id}">
+                                                <div class="icon-large" style="font-size: 0.3em; margin-right: 3em;">
                                                         <i class="ri-circle-fill"></i>
                                                     </div>
-                                                        ${category.cateName}
+                                                    <span class="category-name">${category.cateName}</span>
                                                     <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
                                                 </a>
                                             </li>
                                         </c:forEach>
                                     </c:when>
                                     <c:otherwise>
-                                        <li>Không có danh mục nào.</li>
+                                        <li class="no-category">Không có danh mục nào.</li>
                                     </c:otherwise>
                                 </c:choose>
                             </ul>
                         </div>
+
 
                     </div>
                 </div>
