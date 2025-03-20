@@ -21,22 +21,12 @@ public class CategoryController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setCharacterEncoding("UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html; charset=UTF-8");
         try {
-            System.out.println("DEBUG: Đã vào doGet của CategoryController");
-
             String cateIdParam = request.getParameter("cateId");
             System.out.println("DEBUG: cateIdParam = " + cateIdParam);
 
             List<Category> cate = categoryService.getAll();
             List<Product> pd = productService.getProductsByCategory(Integer.parseInt(cateIdParam));
-            for (Product p : pd) {
-                System.out.println("DEBUG: " + p.getId() + " - " + p.getCateId() + " - " + p.getProName());
-            }
-
-            System.out.println("DEBUG: Có " + pd.size() + " sản phẩm được truyền đến JSP");
             List<Product> productList = new ArrayList<>(pd);
             request.setAttribute("categories", cate);
             request.setAttribute("products", pd);

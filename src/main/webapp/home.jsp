@@ -633,8 +633,7 @@
                                             <div class="price pro-price">
                                                 <span class="current"><f:formatNumber value="${product.price}"/>đ</span>
                                                 <a href="detail?pid=${product.id}" class="btn btn-detail">Xem chi tiết</a>
-                                            </div>
-                                            <div class="footer">
+                                            </div>                                            <div class="footer">
                                                 <ul class="mini-text">
                                                     <li>${product.description}</li>
                                                 </ul>
