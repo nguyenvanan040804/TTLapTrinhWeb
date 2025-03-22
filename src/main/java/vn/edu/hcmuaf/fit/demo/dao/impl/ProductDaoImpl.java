@@ -104,8 +104,7 @@ public class ProductDaoImpl implements IObjectDao<Product> {
     public boolean update(Product product) {
         String sql = "update products set "
                 + "proName = ?, price = ?, description = ?, thumb = ?, "
-                + "quantity = ?, cateId = ? WHERE id = ?";
-
+                + "cateId = ? WHERE id = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, product.getProName());
@@ -192,4 +191,8 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         return products;
     }
 
+    public static void main(String[] args) {
+        ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
+        System.out.println(productDao.getProductImages(1));
+    }
 }
