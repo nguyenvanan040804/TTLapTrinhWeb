@@ -27,4 +27,5 @@ public interface IUserService {
 
     void delete(int id);
 
+    boolean updatePassword(String username, String newPassword);
 }

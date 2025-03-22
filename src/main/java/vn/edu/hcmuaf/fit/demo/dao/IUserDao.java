@@ -26,4 +26,5 @@ public interface IUserDao {
 
     void delete(int id);      // xóa 1 đoi tượng user
 
+    boolean updatePassword(String username, String newPassword);
 }

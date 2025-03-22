@@ -1,6 +1,7 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -98,11 +99,21 @@
                                             <div class="breadcrumb column">
                                                 <ul class="flexitem">
                                                     <li><a href="home.jsp">Trang chủ</a></li>
-                                                    <li>Xe đạp trẻ em</li>
+                                                    <li>
+                                                        <c:forEach var="c" items="${categories}">
+                                                            <c:if test="${c.id == selectedCategoryId}">
+                                                                <p>${c.cateName}</p>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </li>
                                                 </ul>
                                             </div>
-                                            <div class="page-title" items = "categories" var = "Ncate">
-                                                <h1>${Ncate.id}</h1>
+                                            <div class="page-title">
+                                                <c:forEach var="c" items="${categories}">
+                                                    <c:if test="${c.id == selectedCategoryId}">
+                                                        <p>${c.cateName}</p>
+                                                    </c:if>
+                                                </c:forEach>
                                             </div>
                                             <div class="cat-description">
                                                 <p>Xe đạp trẻ em là dòng xe đạp được thiết kế đặc biệt cho các bé với kiểu dáng nhỏ gọn, màu sắc tươi sáng và trọng lượng nhẹ. Xe Đạp BikeShop cung cấp đa dạng dòng xe cho bé từ xe đạp thể thao trẻ em đến các mẫu xe đạp trẻ em cao cấp, phù hợp cho mọi độ tuổi. Tất cả xe đạp cho bé đều được thiết kế với tiêu chuẩn an toàn, bền bỉ, giúp bé tự tin vận động. Đặc biệt, giá xe đạp trẻ em luôn cạnh tranh, đi kèm với nhiều ưu đãi hấp dẫn và chính sách bảo hành dài hạn. Mua xe đạp trẻ em ngay hôm nay để nhận ngay ưu đãi tốt nhất cho bé yêu!</p>

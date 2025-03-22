@@ -84,4 +84,13 @@ public class UserServiceImpl implements IUserService {
     public void delete(int id) {
         userDao.delete(id);
     }
+
+    @Override
+    public boolean updatePassword(String username, String newPassword) {
+        User user = userDao.findOne(username);
+        if (user == null) {
+            return false; // Người dùng không tồn tại
+        }
+        return userDao.updatePassword(username, newPassword);
+    }
 }
