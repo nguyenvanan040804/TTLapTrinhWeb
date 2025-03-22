@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/admin/products")
-public class ProductController extends HttpServlet {
+public class ProductAdController extends HttpServlet {
     private final static IObjectService<Product> productService = new ProductServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

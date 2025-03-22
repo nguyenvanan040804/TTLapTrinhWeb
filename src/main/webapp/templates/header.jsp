@@ -88,7 +88,7 @@
                     <div class="logo"><a href="index.jsp"><span class="circle"></span>.BikeStore</a></div>
                     <nav class="mobile-hide">
                         <ul class="flexitem second-links">
-                            <li><a href="#">Trang Chủ</a></li>
+                            <li><a href="../home.jsp">Trang Chủ</a></li>
                             <li><a href="#">Cửa Hàng</a></li>
                             <li class="has-child">
                                 <a href="#">Sản Phẩm

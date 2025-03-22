@@ -143,6 +143,30 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         return images;
     }
 
+    public List<Product> getBikes() {
+        List<Product> list = new ArrayList<>();
+        String sql = "SELECT * FROM products WHERE cateId = 1";  // Lấy tất cả xe đạp
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(
+                        rs.getInt("id"),
+                        rs.getString("proName"),
+                        rs.getInt("price"),
+                        rs.getString("description"),
+                        rs.getString("thumb"),
+                        rs.getInt("quantity"),
+                        rs.getInt("cateId")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
     public static void main(String[] args) {
         ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
         System.out.println(productDao.getProductImages(1));
