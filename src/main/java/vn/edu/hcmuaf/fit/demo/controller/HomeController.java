@@ -23,6 +23,7 @@ public class HomeController extends HttpServlet {
         List<Category> categories = cateService.getAll();
         request.setAttribute("categories", categories);
         request.getRequestDispatcher("/home.jsp").forward(request, response);
+
     }
 
     @Override
