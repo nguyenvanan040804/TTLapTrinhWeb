@@ -23,7 +23,6 @@ public class CategoryController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String cateIdParam = request.getParameter("cateId");
-            System.out.println("DEBUG: cateIdParam = " + cateIdParam);
 
             List<Category> cate = categoryService.getAll();
             List<Product> pd = productService.getProductsByCategory(Integer.parseInt(cateIdParam));
