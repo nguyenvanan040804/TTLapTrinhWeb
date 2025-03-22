@@ -44,6 +44,10 @@ public class ProductServiceImpl implements IObjectService<Product> {
         return products;
     }
 
+    public List<Product> searchProducts(String keyword) {
+        return productDao.searchProducts(keyword); //Đã gọi DAO để lấy dữ liệu
+    }
+
     public static void main(String[] args) {
         ProductServiceImpl productService = new ProductServiceImpl();
         System.out.println(productService.getAll());

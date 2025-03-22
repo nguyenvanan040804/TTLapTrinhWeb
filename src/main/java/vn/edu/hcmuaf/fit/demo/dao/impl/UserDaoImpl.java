@@ -273,4 +273,18 @@ public class UserDaoImpl implements IUserDao {
         }
         return user;
     }
+    public boolean updatePassword(String username, String newPassword) {
+        String sql = "UPDATE Account SET password = ? WHERE username = ?";
+        try (Connection conn = DBConnect.getConnect();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, newPassword);
+            stmt.setString(2, username);
+
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

@@ -86,12 +86,11 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="tab-pane fade" id="account-change-passWord">
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Mật khẩu hiện tại</label>
-                                    <input type="password" class="form-control" name="currentssword" >
+                                    <input type="password" class="form-control" name="currentPassword" >
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Mật khẩu mới</label>
@@ -103,7 +102,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="tab-pane fade" id="account-info">
                             <div class="card-body pb-2">
                                 <div class="form-group">
@@ -273,9 +271,6 @@
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
-
-    </script>
 </body>
 
 </html>

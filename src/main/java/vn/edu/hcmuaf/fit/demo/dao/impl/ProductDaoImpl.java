@@ -138,10 +138,6 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         return images;
     }
 
-//    public static void main(String[] args) {
-//        ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
-//        System.out.println(productDao.getProductImages(1));
-//    }
     public List<Product> getProductsByCategory(int cateId) {
         List<Product> products = new ArrayList<>();
         String sql = "SELECT * FROM products WHERE cateId = ?";
@@ -169,8 +165,31 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         return products;
     }
 
-    public static void main(String[] args) {
-        ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
-        List<Product> products = productDao.getProductsByCategory(1);
+    public List<Product> searchProducts(String keyword) {
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT * FROM products WHERE proName LIKE ?";
+
+        try (Connection conn = DBConnect.getConnect();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, "%" + keyword + "%");
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Product product = new Product(
+                        rs.getInt("id"),
+                        rs.getString("proName"),
+                        rs.getInt("price"),
+                        rs.getString("description"),
+                        rs.getString("thumb"),
+                        rs.getInt("quantity"),
+                        rs.getInt("cateId")
+                );
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return products;
     }
+
 }
