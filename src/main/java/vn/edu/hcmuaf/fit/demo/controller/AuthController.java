@@ -220,20 +220,31 @@ public class AuthController extends HttpServlet {
         }
     }
     public void getLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false);    // tránh tạo session mới nếu không tồn tại
+        HttpSession session = request.getSession(false); // Tránh tạo session mới nếu không tồn tại
+        String role = null;
+
         if (session != null) {
-            session.removeAttribute("account");  // remove session attribute
+            role = (String) session.getAttribute("roleId"); // Lưu role trước khi hủy session
+            session.invalidate(); // Hủy toàn bộ session
         }
+
+        // Xóa cookie nếu có
         Cookie[] cookies = request.getCookies();
-        if(cookies != null) {
-            for(Cookie cookie : cookies) {
-                if(Constant.COOKIE_REMEMBER.equals(cookie.getName())) {
-                    cookie.setMaxAge(0);    // remove cookie
-                    response.addCookie(cookie);     // update cookie
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (Constant.COOKIE_REMEMBER.equals(cookie.getName())) {
+                    cookie.setMaxAge(0); // Xóa cookie
+                    response.addCookie(cookie);
                     break;
                 }
             }
         }
-        response.sendRedirect("./home");
+
+        // Điều hướng về trang phù hợp
+        if ("admin".equalsIgnoreCase(role)) {
+            response.sendRedirect(request.getContextPath() + "/admin/login.jsp"); // Trang login của admin
+        } else {
+            response.sendRedirect(request.getContextPath() + "/home"); // Trang home cho user bình thường
+        }
     }
 }

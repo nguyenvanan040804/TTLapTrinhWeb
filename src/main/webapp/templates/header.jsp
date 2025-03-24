@@ -1,5 +1,6 @@
 <%@ page import="vn.edu.hcmuaf.fit.demo.model.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -19,7 +20,7 @@
 <aside class="site-off desktop-hide">
     <div class="off-canvas">
         <div class="canvas-head flexitem">
-            <div class="logo"><a href="/"><span class="circle"></span>.BikeStore</a></div>
+            <div class="logo"><a href="home"><span class="circle"></span>.BikeStore</a></div>
             <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
         </div>
         <div class="departments"></div>
@@ -42,22 +43,24 @@
                     <ul class="flexitem main-links">
                         <%
                             User account = (session != null) ? (User) session.getAttribute("account") : null;
+                            String role = (session != null) ? (String) session.getAttribute("roleId") : null;
+                            boolean isAdmin = "admin".equalsIgnoreCase(role);
                         %>
                         <li>
                             <% if (account == null) { %>
-                            <a href="./login.jsp">Đăng nhập</a>
+                            <a href="<%= request.getContextPath() %>/login.jsp">Đăng nhập</a>
                             <% } else { %>
                             <a href="#">Xin chào, <%= account.getLastName() %></a>
                             <% } %>
                         </li>
 
                         <% if (account != null) { %>
-                        <li><a href="./logout">Đăng xuất</a></li>
-                        <li><a href="./pageUser.jsp">Tài Khoản</a></li>
+                        <li><a href="<%= isAdmin ? request.getContextPath() + "/admin/logout" : request.getContextPath() + "/logout" %>">Đăng xuất</a></li>
+                        <li><a href="<%= request.getContextPath() %>/pageUser.jsp">Tài Khoản</a></li>
                         <% } else { %>
-                        <li><a href="./login.jsp">Tài Khoản</a></li>
+                        <li><a href="<%= request.getContextPath() %>/login.jsp">Tài Khoản</a></li>
                         <% } %>
-<%--                        <li><a href="./login.jsp">Tài Khoản</a></li>--%>
+                    <%--                        <li><a href="./login.jsp">Tài Khoản</a></li>--%>
                         <li><a href="cart.jsp">Theo Dõi Đơn</a></li>
                         <li><a href="#">Tiền Tệ <span class="icon-small"> <i
                                 class="ri-arrow-down-s-line"></i></span></a>
@@ -85,10 +88,10 @@
             <div class="wrapper flexitem">
                 <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
                 <div class="left flexitem">
-                    <div class="logo"><a href="index.jsp"><span class="circle"></span>.BikeStore</a></div>
+                    <div class="logo"><a href="home"><span class="circle"></span>.BikeStore</a></div>
                     <nav class="mobile-hide">
                         <ul class="flexitem second-links">
-                            <li><a href="../home.jsp">Trang Chủ</a></li>
+                            <li><a href="home">Trang Chủ</a></li>
                             <li><a href="#">Cửa Hàng</a></li>
 <%--                            --%>
                             <li><a href="../../../page-service.jsp">Dịch Vụ</a></li>
@@ -114,7 +117,7 @@
                                 </div>
                                 <div class="icon-text">
                                     <div class="mini-text">Tổng</div>
-                                    <div class="cart-total">0.00đ</div>
+                                    <div class="cart-total"><f:formatNumber value="${sessionScope.cartTotalPrice}" />đ</div>
                                 </div>
                             </a>
                             <div class="empty-cart">
