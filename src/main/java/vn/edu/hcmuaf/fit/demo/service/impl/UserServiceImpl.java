@@ -6,6 +6,9 @@ import vn.edu.hcmuaf.fit.demo.db.DBConnect;
 import vn.edu.hcmuaf.fit.demo.model.User;
 import vn.edu.hcmuaf.fit.demo.service.IUserService;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImpl implements IUserService {
