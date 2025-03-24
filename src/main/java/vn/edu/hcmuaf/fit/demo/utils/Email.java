@@ -20,7 +20,7 @@ public class Email {
     public boolean sendEmail(User user) {
         boolean test = false;
         String toEmail = user.getEmail();
-        String fromEmail = "anhtuan220704@gmail.com";
+        String fromEmail = "clanbatluc22@gmail.com";
         String password = "fdpm awfa djmt tqyb";
 
         try {
@@ -60,7 +60,7 @@ public class Email {
     public boolean emailSend(User user) {
         boolean test = false;
         String toEmail = user.getEmail();
-        String fromEmail = "anhtuan220704@gmail.com";
+        String fromEmail = "clanbatluc22@gmail.com";
         String password = "fdpm awfa djmt tqyb";
 
         try {
