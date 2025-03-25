@@ -102,23 +102,22 @@ public class ProductDaoImpl implements IObjectDao<Product> {
 
     @Override
     public boolean update(Product product) {
-        String sql = "update products set "
-                + "proName = ?, price = ?, description = ?, thumb = ?, "
-                + "cateId = ? WHERE id = ?";
-        try {
-            PreparedStatement ps = conn.prepareStatement(sql);
+        String sql = "UPDATE products SET proName = ?, price = ?, description = ?, thumb = ?, quantity = ?, cateId = ? WHERE id = ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, product.getProName());
             ps.setInt(2, product.getPrice());
             ps.setString(3, product.getDescription());
             ps.setString(4, product.getThumb());
             ps.setInt(5, product.getQuantity());
             ps.setInt(6, product.getCateId());
+            ps.setInt(7, product.getId());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
+
 
 
     public List<String> getProductImages(int productId) {

@@ -1,0 +1,25 @@
+[33m0332b05[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mNguyenVanAn[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{0}: checkout: moving from main to NguyenVanAn
+[33m0332b05[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mNguyenVanAn[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{1}: checkout: moving from NguyenVanAn to main
+[33m0332b05[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mNguyenVanAn[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2}: merge main: Fast-forward
+[33maabf02b[m[33m ([m[1;31morigin/NguyenVanAn[m[33m)[m HEAD@{3}: checkout: moving from main to NguyenVanAn
+[33m0332b05[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mNguyenVanAn[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{4}: pull origin main: Fast-forward
+[33mf11124c[m HEAD@{5}: checkout: moving from NguyenVanAn to main
+[33maabf02b[m[33m ([m[1;31morigin/NguyenVanAn[m[33m)[m HEAD@{6}: checkout: moving from main to NguyenVanAn
+[33mf11124c[m HEAD@{7}: checkout: moving from NguyenVanAn to main
+[33maabf02b[m[33m ([m[1;31morigin/NguyenVanAn[m[33m)[m HEAD@{8}: checkout: moving from main to NguyenVanAn
+[33mf11124c[m HEAD@{9}: checkout: moving from NguyenVanAn to main
+[33maabf02b[m[33m ([m[1;31morigin/NguyenVanAn[m[33m)[m HEAD@{10}: commit: test loi
+[33m0cd0b6c[m HEAD@{11}: checkout: moving from main to NguyenVanAn
+[33mf11124c[m HEAD@{12}: checkout: moving from NguyenVanAn to main
+[33m0cd0b6c[m HEAD@{13}: commit: Cập nhật BikeListController và ProductServiceImpl
+[33m654072a[m HEAD@{14}: commit (merge): pull code từ main
+[33mc5e0d92[m HEAD@{15}: checkout: moving from main to NguyenVanAn
+[33mf11124c[m HEAD@{16}: pull origin main: Fast-forward
+[33mbf7a55d[m HEAD@{17}: checkout: moving from NguyenVanAn to main
+[33mc5e0d92[m HEAD@{18}: commit: them controller va trang hien thi cho danh sach sp
+[33mb75e056[m HEAD@{19}: commit: xong phan them san pham vo csdl
+[33m659cd68[m HEAD@{20}: commit: ..
+[33mbf7a55d[m HEAD@{21}: checkout: moving from main to NguyenVanAn
+[33mbf7a55d[m HEAD@{22}: checkout: moving from NguyenVanAn to main
+[33mbf7a55d[m HEAD@{23}: checkout: moving from main to NguyenVanAn
+[33mbf7a55d[m HEAD@{24}: clone: from https://github.com/nguyenvanan040804/TTLapTrinhWeb.git
