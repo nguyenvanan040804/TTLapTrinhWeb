@@ -6,11 +6,17 @@ import vn.edu.hcmuaf.fit.demo.dao.impl.*;
 import vn.edu.hcmuaf.fit.demo.db.*;
 import vn.edu.hcmuaf.fit.demo.model.*;
 import vn.edu.hcmuaf.fit.demo.service.*;
+import vn.edu.hcmuaf.fit.demo.utils.TextUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductServiceImpl implements IObjectService<Product> {
     private ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
+    private List<Product> products;
+    public ProductServiceImpl() {
+        this.products = productDao.getAll(); // Lấy tất cả sản phẩm từ database khi khởi tạo
+    }
     @Override
     public boolean add(Product pro) {
         return productDao.add(pro);
@@ -46,7 +52,20 @@ public class ProductServiceImpl implements IObjectService<Product> {
     }
 
     public List<Product> searchProducts(String keyword) {
-        return productDao.searchProducts(keyword); //Đã gọi DAO để lấy dữ liệu
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return List.of(); // Trả về danh sách rỗng nếu không có từ khóa
+        }
+
+        String keywordNoAccent = TextUtils.removeAccent(keyword.toLowerCase());
+        System.out.println("DEBUG: Từ khóa tìm kiếm không dấu - " + keywordNoAccent);
+
+        for (Product p : products) {
+            System.out.println("DEBUG: Sản phẩm - " + p.getProName() + " | Không dấu: " + TextUtils.removeAccent(p.getProName()));
+        }
+
+        return products.stream()
+                .filter(p -> TextUtils.removeAccent(p.getProName().toLowerCase()).contains(keywordNoAccent))
+                .collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
