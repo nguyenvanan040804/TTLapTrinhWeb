@@ -34,7 +34,7 @@
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
-                            <a href="bikeList.jsp">
+                            <a href="listProducts.jsp">
                             <i class="fas fa-bicycle fa-3x text-secondary"></i><br>
                             <h5>Xem tất cả xe</h5>
                             -----------------
