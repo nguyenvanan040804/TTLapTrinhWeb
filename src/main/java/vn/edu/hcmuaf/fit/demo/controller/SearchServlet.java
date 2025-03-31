@@ -28,7 +28,7 @@ public class SearchServlet extends HttpServlet {
         System.out.println("DEBUG: Số sản phẩm tìm thấy - " + searchResults.size());
         request.setAttribute("searchResults", searchResults);
         request.setAttribute("keyword", keyword);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.getRequestDispatcher("pageCategory.jsp").forward(request, response);
     }
 
 }

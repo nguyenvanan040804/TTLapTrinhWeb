@@ -177,7 +177,7 @@
                         <form action="search" method="get" class="search">
                             <span class="icon-large"><i class="ri-search-line"></i></span>
                             <input type="search" name="keyword" id="search" placeholder="Tìm kiếm sản phẩm" required>
-                            <button type="submit" id="btn-addon2">Tìm kiếm</button>
+                            <button type="submit" id="btn-addon2" style="left: 450px">Tìm kiếm</button>
                         </form>
                     </div>
                 </div>

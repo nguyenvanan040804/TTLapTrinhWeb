@@ -1,3 +1,5 @@
+<%@ page import="vn.edu.hcmuaf.fit.demo.model.Product" %>
+<%@ page import="java.util.List" %>
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -93,6 +95,7 @@
                                         </div>
                                    </div>
                                 </div>
+
                                 <div class="section features" id="section-children">
                                     <div class="row container">
                                         <div class="cat-head wrapper">
@@ -179,6 +182,48 @@
                                             </c:if>
                                         </c:forEach>
                                     </div>
+                                    <div class="products main flexwrap">
+                                        <c:forEach var="product" items="${searchResults}">
+                                            <div class="item">
+                                                <div class="media">
+                                                    <div class="thumbnail object-cover">
+                                                        <a href="#" data-id="${product.id}">
+                                                            <img src="${product.thumb}" alt="${product.proName}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="hoverable">
+                                                        <ul>
+                                                            <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                            <li><a href=""><i class="ri-eye-line"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="rating">
+                                                        <div class="mini-text">(4.5)</div>
+                                                        <div class="stars" style="width: 17px;"></div>
+                                                        <span class="mini-text" style="margin-left: auto;">Số lượng: ${product.quantity}</span>
+                                                    </div>
+                                                    <h3 class="main-links"><a href="#">${product.proName}</a></h3>
+                                                    <div class="price pro-price">
+                                                        <span class="current"><f:formatNumber value="${product.price}"/>đ</span>
+                                                        <a href="detail?pid=${product.id}" class="btn btn-detail">Xem chi tiết</a>
+                                                    </div>
+                                                    <div class="footer">
+                                                        <ul class="mini-text">
+                                                            <li>${product.description}</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </c:forEach>
+
+                                        <!-- Hiển thị thông báo nếu không tìm thấy sản phẩm -->
+                                        <c:if test="${empty searchResults}">
+                                            <p>Không tìm thấy sản phẩm nào cho từ khóa: <strong>${keyword}</strong></p>
+                                        </c:if>
+                                    </div>
+
                                     <div class="load-more flexcenter">
                                         <a href="#" class="secondary-button load-button">Hiển thị thêm</a>
                                     </div>
