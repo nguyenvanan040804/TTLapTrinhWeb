@@ -111,9 +111,17 @@
                                             <tr>
                                                 <td><strong>Tổng</strong></td>
                                                 <td><f:formatNumber value="${sessionScope.cartTotalPrice + sessionScope.cartTotalPrice * 0.1}" />đ</td>
+
                                             </tr>
                                         </table>
-                                        <button class="normal"><a href="checkout.jsp">Thanh toán</a></button>
+<%--                                        <button class="normal"><a href="checkout.jsp">Thanh toán</a></button>--%>
+                                        <form action="checkout" method="post">
+                                            <input type="hidden" name="action" value="checkout">
+                                            <button type="submit" class="normal">Tiến hành thanh toán</button>
+                                        </form>
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -180,5 +188,7 @@
             }
         })
     </script>
+
+
 </body>
 </html>
