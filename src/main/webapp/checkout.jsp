@@ -129,7 +129,9 @@
                         <div class="item right">
                             <h3>Đơn Hàng</h3>
                             <div class="summary-order is_sticky">
+                                <c:set var="shippingFee" value="100000" />
                                 <c:set var="grandTotal" value="${totalPrice - discount + shippingFee}" />
+
                                 <div class="summary-totals">
                                     <ul>
                                         <li>
