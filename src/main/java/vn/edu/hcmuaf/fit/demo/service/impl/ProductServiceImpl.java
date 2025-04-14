@@ -68,8 +68,50 @@ public class ProductServiceImpl implements IObjectService<Product> {
                 .collect(Collectors.toList());
     }
 
+    public List<Product> getFilteredProducts(String name, Double minPrice, Double maxPrice, String sort) {
+        List<Product> filteredProducts = productDao.getAll(); // Lấy tất cả sản phẩm từ database
+
+        // Lọc theo tên sản phẩm nếu có
+        if (name != null && !name.isEmpty()) {
+            filteredProducts = filteredProducts.stream()
+                    .filter(p -> p.getProName().toLowerCase().contains(name.toLowerCase()))
+                    .collect(Collectors.toList());
+        }
+
+        // Lọc theo giá nếu có
+        if (minPrice != null) {
+            filteredProducts = filteredProducts.stream()
+                    .filter(p -> p.getPrice() >= minPrice)
+                    .collect(Collectors.toList());
+        }
+
+        if (maxPrice != null) {
+            filteredProducts = filteredProducts.stream()
+                    .filter(p -> p.getPrice() <= maxPrice)
+                    .collect(Collectors.toList());
+        }
+
+        // Sắp xếp theo tiêu chí
+        switch (sort) {
+            case "name":
+                filteredProducts.sort((p1, p2) -> p1.getProName().compareToIgnoreCase(p2.getProName()));
+                break;
+            case "price":
+                filteredProducts.sort((p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice()));
+                break;
+            default:
+                // Mặc định sắp xếp theo ID nếu không có tiêu chí rõ ràng
+                filteredProducts.sort((p1, p2) -> Integer.compare(p1.getId(), p2.getId()));
+                break;
+        }
+
+        return filteredProducts;
+    }
+
     public static void main(String[] args) {
         ProductServiceImpl productService = new ProductServiceImpl();
         System.out.println(productService.getAll());
     }
+
+
 }
