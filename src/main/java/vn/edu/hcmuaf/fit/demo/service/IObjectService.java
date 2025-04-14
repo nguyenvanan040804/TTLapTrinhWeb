@@ -13,5 +13,4 @@ public interface IObjectService<T> {
 
     boolean update(T obj);
 
-
 }
