@@ -84,19 +84,17 @@ public class AuthController extends HttpServlet {
             // lấy số 6 chữ số
             String code = sm.getRandom();
 
-            // Mã hóa mật khẩu
-            String hashedPassword = BCrypt.hashPassword(rawPassword);
-
             // tạo user mới chứa tất cả thông tin
-            User user = new User(username, fullname, email, hashedPassword, phone, address, code);
+            User user = new User(username, fullname, email, rawPassword, phone, address, code);
 
             boolean test = sm.sendEmail(user);
             if(test) {
                 HttpSession session = request.getSession();
                 session.setAttribute("account", user);
 
-                boolean isSuccess = userService.register(username, fullname, email, hashedPassword, phone, address, code);
+                boolean isSuccess = userService.register(username, fullname, email, rawPassword, phone, address, code);
                 if(isSuccess) {
+                    session.setAttribute("successMessage", "Đăng ký tài khoản thành công! Vui lòng kiểm tra email để xác thực.");
                     response.sendRedirect(request.getContextPath() + "/verifyCode");
                 }else {
                     alertMsg = "Lỗi hệ thống !";
@@ -199,41 +197,52 @@ public class AuthController extends HttpServlet {
     }
 
     public void postVerifyCode(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()){
-            // truy cập session
-            HttpSession session = request.getSession();
-            User user = (User) session.getAttribute("account");
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("account");
+        String code = request.getParameter("authcode");
 
-            String code = request.getParameter("authcode");
+        if (user != null && code.equals(user.getCode())) {
+            user.setStatus(1);  // Cập nhật trạng thái tài khoản (đã xác thực)
+            userService.updateStatus(user); // Lưu vào database
 
-            if(code.equals(user.getCode())) {
-                user.setEmail(user.getEmail());
-                user.setStatus(1);
+            // Cập nhật lại session
+            session.setAttribute("account", user);
+            session.setAttribute("successMsg", "Xác thực tài khoản thành công!");
 
-                userService.updateStatus(user);
-
-                out.println("Kích hoạt tài khoản thành công!");
-            }else {
-                out.println("Sai mã kích hoạt, vui lòng kiểm tra lại");
-            }
+            // Chuyển hướng về trang home sau khi đăng nhập
+            response.sendRedirect(request.getContextPath() + "/home");
+        } else {
+            // Nếu mã xác thực sai, hiển thị thông báo lỗi trên verify.jsp
+            request.setAttribute("failMsg", "Mã xác thực không đúng. Vui lòng thử lại!");
+            request.getRequestDispatcher("./verify.jsp").forward(request, response);
         }
     }
     public void getLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false);    // tránh tạo session mới nếu không tồn tại
+        HttpSession session = request.getSession(false); // Tránh tạo session mới nếu không tồn tại
+        String role = null;
+
         if (session != null) {
-            session.removeAttribute("account");  // remove session attribute
+            role = (String) session.getAttribute("roleId"); // Lưu role trước khi hủy session
+            session.invalidate(); // Hủy toàn bộ session
         }
+
+        // Xóa cookie nếu có
         Cookie[] cookies = request.getCookies();
-        if(cookies != null) {
-            for(Cookie cookie : cookies) {
-                if(Constant.COOKIE_REMEMBER.equals(cookie.getName())) {
-                    cookie.setMaxAge(0);    // remove cookie
-                    response.addCookie(cookie);     // update cookie
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (Constant.COOKIE_REMEMBER.equals(cookie.getName())) {
+                    cookie.setMaxAge(0); // Xóa cookie
+                    response.addCookie(cookie);
                     break;
                 }
             }
         }
-        response.sendRedirect("./home");
+
+        // Điều hướng về trang phù hợp
+        if ("admin".equalsIgnoreCase(role)) {
+            response.sendRedirect(request.getContextPath() + "/admin/login.jsp"); // Trang login của admin
+        } else {
+            response.sendRedirect(request.getContextPath() + "/home"); // Trang home cho user bình thường
+        }
     }
 }

@@ -12,7 +12,7 @@
 <body>
     <div class="go-back">
         <i class="bx bx-left-arrow-alt"></i>
-        <a href="home.jsp">Trở lại</a>
+        <a href="home">Trở lại</a>
     </div>
     <div class="container light-style flex-grow-1 container-p-y">
         <c:if test="${not empty message}">

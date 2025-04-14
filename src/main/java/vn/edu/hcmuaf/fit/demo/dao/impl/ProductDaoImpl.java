@@ -190,6 +190,63 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         return products;
     }
 
+    public List<Product> getFilteredProducts(String name, Double minPrice, Double maxPrice, String sort) {
+        List<Product> products = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM products WHERE 1=1";
+
+            if (name != null && !name.isEmpty()) {
+                sql += " AND name LIKE ?";
+            }
+            if (minPrice != null) {
+                sql += " AND price >= ?";
+            }
+            if (maxPrice != null) {
+                sql += " AND price <= ?";
+            }
+
+            // Sắp xếp theo lựa chọn của người dùng
+            if ("name".equals(sort)) {
+                sql += " ORDER BY name ASC";
+            } else if ("price".equals(sort)) {
+                sql += " ORDER BY price ASC";
+            } else if ("brand".equals(sort)) {
+                sql += " ORDER BY brand ASC";
+            }
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            int index = 1;
+
+            if (name != null && !name.isEmpty()) {
+                stmt.setString(index++, "%" + name + "%");
+            }
+            if (minPrice != null) {
+                stmt.setDouble(index++, minPrice);
+            }
+            if (maxPrice != null) {
+                stmt.setDouble(index++, maxPrice);
+            }
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                products.add(new Product(
+                        rs.getInt("id"),
+                        rs.getString("proName"),
+                        rs.getInt("price"),
+                        rs.getString("description"),
+                        rs.getString("thumb"),
+                        rs.getInt("quantity"),
+                        rs.getInt("cateId")
+                ));
+            }
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return products;
+    }
+
     public static void main(String[] args) {
         ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());
         System.out.println(productDao.getProductImages(1));
