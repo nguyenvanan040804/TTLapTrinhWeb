@@ -68,15 +68,8 @@ public class ProductServiceImpl implements IObjectService<Product> {
                 .collect(Collectors.toList());
     }
 
-    public List<Product> getFilteredProducts(String name, Double minPrice, Double maxPrice, String sort) {
+    public List<Product> getFilteredProducts(Double minPrice, Double maxPrice, String sort) {
         List<Product> filteredProducts = productDao.getAll(); // Lấy tất cả sản phẩm từ database
-
-        // Lọc theo tên sản phẩm nếu có
-        if (name != null && !name.isEmpty()) {
-            filteredProducts = filteredProducts.stream()
-                    .filter(p -> p.getProName().toLowerCase().contains(name.toLowerCase()))
-                    .collect(Collectors.toList());
-        }
 
         // Lọc theo giá nếu có
         if (minPrice != null) {

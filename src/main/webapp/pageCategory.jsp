@@ -131,27 +131,11 @@
 
                                                 <!-- Form lọc sản phẩm -->
                                                 <form id="filterForm" action="filterProducts" method="get">
-                                                    <input type="text" name="name" placeholder="Tên sản phẩm">
                                                     <input type="number" name="minPrice" step="1000000" placeholder="Giá từ">
                                                     <input type="number" name="maxPrice" step="1000000" placeholder="đến">
-                                                    <input type="hidden" name="sort" id="sortInput" value="name">  <!-- Mặc định theo tên sản phẩm -->
                                                     <button type="submit">Lọc</button>
                                                 </form>
 
-                                                <!-- Bộ lọc sắp xếp -->
-                                                <div class="item-sortir">
-                                                    <div class="label">
-                                                        <span class="mobile-hide">Sắp xếp mặc định</span>
-                                                        <div class="desktop-hide">Mặc định</div>
-                                                        <i class="ri-arrow-down-s-line"></i>
-                                                    </div>
-                                                    <ul id="sortOptions">
-                                                        <li data-sort="default">Mặc định</li>
-                                                        <li data-sort="name">Tên sản phẩm</li>
-                                                        <li data-sort="price">Giá</li>
-                                                        <li data-sort="brand">Hãng</li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -194,87 +178,6 @@
                                             </c:if>
                                         </c:forEach>
                                     </div>
-<%--                                    tim kiem--%>
-                                    <div class="products main flexwrap">
-                                        <c:forEach var="product" items="${searchResults}">
-                                            <div class="item">
-                                                <div class="media">
-                                                    <div class="thumbnail object-cover">
-                                                        <a href="#" data-id="${product.id}">
-                                                            <img src="${product.thumb}" alt="${product.proName}">
-                                                        </a>
-                                                    </div>
-                                                    <div class="hoverable">
-                                                        <ul>
-                                                            <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
-                                                            <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="rating">
-                                                        <div class="mini-text">(4.5)</div>
-                                                        <div class="stars" style="width: 17px;"></div>
-                                                        <span class="mini-text" style="margin-left: auto;">Số lượng: ${product.quantity}</span>
-                                                    </div>
-                                                    <h3 class="main-links"><a href="#">${product.proName}</a></h3>
-                                                    <div class="price pro-price">
-                                                        <span class="current"><f:formatNumber value="${product.price}"/>đ</span>
-                                                        <a href="detail?pid=${product.id}" class="btn btn-detail">Xem chi tiết</a>
-                                                    </div>
-                                                    <div class="footer">
-                                                        <ul class="mini-text">
-                                                            <li>${product.description}</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </c:forEach>
-
-                                        <!-- Hiển thị thông báo nếu không tìm thấy sản phẩm -->
-                                        <c:if test="${empty searchResults}">
-                                            <p>Không tìm thấy sản phẩm nào cho từ khóa: <strong>${keyword}</strong></p>
-                                        </c:if>
-                                    </div>
-<%--                                    bo loc--%>
-<%--                                    <div class="products main flexwrap">--%>
-<%--                                        <c:forEach var="product" items="${products}">--%>
-
-<%--                                            <div class="item">--%>
-<%--                                                <div class="media">--%>
-<%--                                                    <div class="thumbnail object-cover">--%>
-<%--                                                        <a href="#" data-id="${product.id}">--%>
-<%--                                                            <img src="${product.thumb}" alt="${product.proName}">--%>
-<%--                                                        </a>--%>
-<%--                                                    </div>--%>
-<%--                                                    <div class="hoverable">--%>
-<%--                                                        <ul>--%>
-<%--                                                            <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>--%>
-<%--                                                            <li><a href=""><i class="ri-eye-line"></i></a></li>--%>
-<%--                                                        </ul>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="content">--%>
-<%--                                                    <div class="rating">--%>
-<%--                                                        <div class="mini-text">(4.5)</div>--%>
-<%--                                                        <div class="stars" style="width: 17px;"></div>--%>
-<%--                                                        <span class="mini-text" style="margin-left: auto;">Số lượng: ${product.quantity}</span>--%>
-<%--                                                    </div>--%>
-<%--                                                    <h3 class="main-links"><a href="#">${product.proName}</a></h3>--%>
-<%--                                                    <div class="price pro-price">--%>
-<%--                                                        <span class="current"><f:formatNumber value="${product.price}"/>đ</span>--%>
-<%--                                                        <a href="detail?pid=${product.id}" class="btn btn-detail">Xem chi tiết</a>--%>
-<%--                                                    </div>--%>
-<%--                                                    <div class="footer">--%>
-<%--                                                        <ul class="mini-text">--%>
-<%--                                                            <li>${product.description}</li>--%>
-<%--                                                        </ul>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                        </c:forEach>--%>
-<%--                                    </div>--%>
-
                                     <div class="load-more flexcenter">
                                         <a href="#" class="secondary-button load-button">Hiển thị thêm</a>
                                     </div>
