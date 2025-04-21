@@ -190,14 +190,11 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         return products;
     }
 
-    public List<Product> getFilteredProducts(String name, Double minPrice, Double maxPrice, String sort) {
+    public List<Product> getFilteredProducts(Double minPrice, Double maxPrice, String sort) {
         List<Product> products = new ArrayList<>();
         try {
             String sql = "SELECT * FROM products WHERE 1=1";
 
-            if (name != null && !name.isEmpty()) {
-                sql += " AND name LIKE ?";
-            }
             if (minPrice != null) {
                 sql += " AND price >= ?";
             }
@@ -207,19 +204,16 @@ public class ProductDaoImpl implements IObjectDao<Product> {
 
             // Sắp xếp theo lựa chọn của người dùng
             if ("name".equals(sort)) {
-                sql += " ORDER BY name ASC";
+                sql += " ORDER BY proName ASC";
             } else if ("price".equals(sort)) {
                 sql += " ORDER BY price ASC";
             } else if ("brand".equals(sort)) {
-                sql += " ORDER BY brand ASC";
+                sql += " ORDER BY brand ASC"; // nếu không có brand thì nên bỏ dòng này
             }
 
             PreparedStatement stmt = conn.prepareStatement(sql);
             int index = 1;
 
-            if (name != null && !name.isEmpty()) {
-                stmt.setString(index++, "%" + name + "%");
-            }
             if (minPrice != null) {
                 stmt.setDouble(index++, minPrice);
             }
