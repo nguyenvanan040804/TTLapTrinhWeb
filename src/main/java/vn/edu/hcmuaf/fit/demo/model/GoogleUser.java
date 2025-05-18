@@ -70,4 +70,13 @@ public class GoogleUser implements Serializable {
                 ", passWord='" + passWord + '\'' +
                 '}';
     }
+
+    public String getLastName() {
+        if (name != null && !name.isEmpty()) {
+            String[] nameParts = name.split(" ");
+            return nameParts[nameParts.length - 1];
+        }
+        return "";
+    }
+
 }

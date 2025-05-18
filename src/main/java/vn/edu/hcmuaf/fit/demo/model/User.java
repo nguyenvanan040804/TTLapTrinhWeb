@@ -14,6 +14,8 @@ public class User implements Serializable {
     private String address;
     private int status;
     private String code;
+    private String googleId;
+    private String picture;
 
     public User() {
     }
@@ -141,6 +143,17 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    public String getGoogleId() {
+        return googleId;
+    }
+
+    public void setGoogleId(String googleId) {
+        this.googleId = googleId;
+    }
+
+    public String getPicture() { return picture; }
+
+    public void setPicture(String picture) { this.picture = picture; }
     @Override
     public String toString() {
         return "User{" +

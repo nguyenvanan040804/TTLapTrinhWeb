@@ -43,6 +43,7 @@
                     <ul class="flexitem main-links">
                         <%
                             User account = (session != null) ? (User) session.getAttribute("account") : null;
+//                            GoogleUser account1 = (session != null) ? (GoogleUser) session.getAttribute("account") : null;
                             String role = (session != null) ? (String) session.getAttribute("roleId") : null;
                             boolean isAdmin = "admin".equalsIgnoreCase(role);
                         %>

@@ -1,18 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%@ page import="vn.edu.hcmuaf.fit.demo.model.GoogleUser" %>
-<%@ page import="vn.edu.hcmuaf.fit.demo.model.User" %>
-<%
-    Object acc = session.getAttribute("account");
-    String username = "";
-    if (acc instanceof User) {
-        username = ((User) acc).getUserName();
-    } else if (acc instanceof GoogleUser) {
-        username = ((GoogleUser) acc).getFullName();
-    }
-%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ page isErrorPage="true" %>
+<%-- Hoặc --%>
+<%@ page errorPage="error.jsp" %>
+
 
 <!DOCTYPE html>
 <html lang="vi">
