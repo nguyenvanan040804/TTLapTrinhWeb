@@ -131,27 +131,12 @@
 
                                                 <!-- Form lọc sản phẩm -->
                                                 <form id="filterForm" action="filterProducts" method="get">
-                                                    <input type="text" name="name" placeholder="Tên sản phẩm">
+
                                                     <input type="number" name="minPrice" step="1000000" placeholder="Giá từ">
                                                     <input type="number" name="maxPrice" step="1000000" placeholder="đến">
-                                                    <input type="hidden" name="sort" id="sortInput" value="name">  <!-- Mặc định theo tên sản phẩm -->
                                                     <button type="submit">Lọc</button>
                                                 </form>
 
-                                                <!-- Bộ lọc sắp xếp -->
-                                                <div class="item-sortir">
-                                                    <div class="label">
-                                                        <span class="mobile-hide">Sắp xếp mặc định</span>
-                                                        <div class="desktop-hide">Mặc định</div>
-                                                        <i class="ri-arrow-down-s-line"></i>
-                                                    </div>
-                                                    <ul id="sortOptions">
-                                                        <li data-sort="default">Mặc định</li>
-                                                        <li data-sort="name">Tên sản phẩm</li>
-                                                        <li data-sort="price">Giá</li>
-                                                        <li data-sort="brand">Hãng</li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/search")
-public class SearchServlet extends HttpServlet {
+public class SearchController extends HttpServlet {
     private final ProductServiceImpl productService = new ProductServiceImpl();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +28,8 @@ public class SearchServlet extends HttpServlet {
         System.out.println("DEBUG: Số sản phẩm tìm thấy - " + searchResults.size());
         request.setAttribute("searchResults", searchResults);
         request.setAttribute("keyword", keyword);
-        request.getRequestDispatcher("pageCategory.jsp").forward(request, response);
+        request.getRequestDispatcher("pageSearch.jsp").forward(request, response);
+
     }
 
 }
