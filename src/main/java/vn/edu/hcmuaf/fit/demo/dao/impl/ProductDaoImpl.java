@@ -190,6 +190,7 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         return products;
     }
 
+
     public List<Product> getFilteredProducts(Double minPrice, Double maxPrice, String sort) {
         List<Product> products = new ArrayList<>();
         try {
@@ -209,6 +210,7 @@ public class ProductDaoImpl implements IObjectDao<Product> {
                 sql += " ORDER BY price ASC";
             } else if ("brand".equals(sort)) {
                 sql += " ORDER BY brand ASC"; // nếu không có brand thì nên bỏ dòng này
+
             }
 
             PreparedStatement stmt = conn.prepareStatement(sql);

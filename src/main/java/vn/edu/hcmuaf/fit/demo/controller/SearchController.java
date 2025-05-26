@@ -29,6 +29,7 @@ public class SearchController extends HttpServlet {
         request.setAttribute("searchResults", searchResults);
         request.setAttribute("keyword", keyword);
         request.getRequestDispatcher("pageSearch.jsp").forward(request, response);
+
     }
 
 }

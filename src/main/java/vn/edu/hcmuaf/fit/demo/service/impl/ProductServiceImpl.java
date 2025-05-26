@@ -68,8 +68,10 @@ public class ProductServiceImpl implements IObjectService<Product> {
                 .collect(Collectors.toList());
     }
 
+
     public List<Product> getFilteredProducts(Double minPrice, Double maxPrice, String sort) {
         List<Product> filteredProducts = productDao.getAll(); // Lấy tất cả sản phẩm từ database
+
 
         // Lọc theo giá nếu có
         if (minPrice != null) {
