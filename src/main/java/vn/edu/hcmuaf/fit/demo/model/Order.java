@@ -12,9 +12,16 @@ public class Order {
     private int shippingStatus;
     private Date createDate;
 
+    public Order(String dh1001, String pending) {
+    }
+
+    public Order() {
+
+    }
+
     // Getters & Setters
     public int getId() {
-        return id;
+        return 0;
     }
 
     public void setId(int id) {
@@ -59,5 +66,8 @@ public class Order {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public void setStatus(String status) {
     }
 }

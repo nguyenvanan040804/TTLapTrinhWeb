@@ -22,9 +22,9 @@ import java.util.*;
 @WebServlet("/payment")
 public class PaymentController extends HttpServlet {
     private static final String VNP_URL = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    private static final String VNP_TMN_CODE = "YOUR_TMN_CODE";
-    private static final String VNP_HASH_SECRET = "YOUR_HASH_SECRET";
-    private static final String RETURN_URL = "http://localhost:8080/your_project/vnpay_return";
+    private static final String VNP_TMN_CODE = "4SA5TVRY";
+    private static final String VNP_HASH_SECRET = "8FPNIMCYWMLMHSARSA18WTCIQZOFASWY";
+    private static final String RETURN_URL = "https://162b-42-118-228-222.ngrok-free.app/Project_LT_Web_war/vnpay_return";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,7 +37,9 @@ public class PaymentController extends HttpServlet {
         }
 
         String orderId = String.valueOf(System.currentTimeMillis());
-        long amount = Math.round(cart.calculateTotalPrice() * 100); // VNPay tính theo đơn vị đồng * 100
+
+        long amount = Math.round(cart.calculateTotalPrice() * 100);
+
 
         Map<String, String> vnpParams = new HashMap<>();
         vnpParams.put("vnp_Version", "2.1.0");
@@ -51,6 +53,7 @@ public class PaymentController extends HttpServlet {
         vnpParams.put("vnp_ReturnUrl", RETURN_URL);
         vnpParams.put("vnp_IpAddr", request.getRemoteAddr());
         vnpParams.put("vnp_CreateDate", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
+        vnpParams.put("vnp_OrderType", "other"); // hoặc: "billpayment", "topup", "fashion", v.v.
 
         // Sắp xếp và build chuỗi dữ liệu
         List<String> fieldNames = new ArrayList<>(vnpParams.keySet());
@@ -61,16 +64,24 @@ public class PaymentController extends HttpServlet {
 
         for (String field : fieldNames) {
             String value = vnpParams.get(field);
-            hashData.append(field).append("=").append(value).append("&");
-            query.append(URLEncoder.encode(field, StandardCharsets.UTF_8)).append("=")
-                    .append(URLEncoder.encode(value, StandardCharsets.UTF_8)).append("&");
+            String encodedKey = URLEncoder.encode(field, StandardCharsets.UTF_8);
+            String encodedValue = URLEncoder.encode(value, StandardCharsets.UTF_8);
+            hashData.append(encodedKey).append("=").append(encodedValue).append("&");
+            query.append(encodedKey).append("=").append(encodedValue).append("&");
         }
+
 
         hashData.setLength(hashData.length() - 1);
         query.setLength(query.length() - 1);
 
         String secureHash = hmacSHA512(VNP_HASH_SECRET, hashData.toString());
-        query.append("&vnp_SecureHash=").append(secureHash);
+
+        System.out.println("HashData: " + hashData.toString());
+        System.out.println("SecureHash: " + secureHash);
+
+        query.append("&").append(URLEncoder.encode("vnp_SecureHash", StandardCharsets.UTF_8))
+                .append("=")
+                .append(URLEncoder.encode(secureHash, StandardCharsets.UTF_8));
 
         response.sendRedirect(VNP_URL + "?" + query.toString());
     }

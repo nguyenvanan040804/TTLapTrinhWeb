@@ -10,14 +10,13 @@ import org.apache.commons.codec.binary.Hex;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-
 @WebServlet("/vnpay_return")
 public class VnpayReturnController extends HttpServlet {
-    private static final String VNP_HASH_SECRET = "YOUR_HASH_SECRET";
+    private static final String VNP_HASH_SECRET = "8FPNIMCYWMLMHSARSA18WTCIQZOFASWY";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> vnpParams = new HashMap<>();
@@ -26,29 +25,39 @@ public class VnpayReturnController extends HttpServlet {
         }
 
         String vnpSecureHash = vnpParams.remove("vnp_SecureHash");
+        vnpParams.remove("vnp_SecureHashType");
+
         List<String> fieldNames = new ArrayList<>(vnpParams.keySet());
         Collections.sort(fieldNames);
         StringBuilder hashData = new StringBuilder();
 
         for (String fieldName : fieldNames) {
-            hashData.append(fieldName).append("=").append(vnpParams.get(fieldName)).append("&");
+            String encodedKey = URLEncoder.encode(fieldName, StandardCharsets.UTF_8);
+            String encodedValue = URLEncoder.encode(vnpParams.get(fieldName), StandardCharsets.UTF_8);
+            hashData.append(encodedKey).append("=").append(encodedValue).append("&");
         }
-        hashData.setLength(hashData.length() - 1);
+        if (hashData.length() > 0) {
+            hashData.setLength(hashData.length() - 1);
+        }
 
         String calculatedHash = hmacSHA512(VNP_HASH_SECRET, hashData.toString());
 
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/html;charset=UTF-8");
-
+        String message;
         if (calculatedHash.equals(vnpSecureHash)) {
             if ("00".equals(vnpParams.get("vnp_ResponseCode"))) {
-                out.println("<h3>Giao dịch thành công!</h3>");
+                message = "Giao dịch thành công!";
             } else {
-                out.println("<h3>Giao dịch thất bại!</h3>");
+                message = "Giao dịch thất bại!";
             }
         } else {
-            out.println("<h3>Chữ ký không hợp lệ!</h3>");
+            message = "Chữ ký không hợp lệ!";
         }
+
+        // Truyền message sang JSP
+        request.setAttribute("message", message);
+
+        // Chuyển tiếp đến trang JSP hiển thị kết quả
+        request.getRequestDispatcher("/payment_result.jsp").forward(request, response);
     }
 
     private String hmacSHA512(String key, String data) {
@@ -63,5 +72,6 @@ public class VnpayReturnController extends HttpServlet {
         }
     }
 }
+
 
 
