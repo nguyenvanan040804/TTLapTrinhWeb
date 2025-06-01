@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/accessory.css">
+    <link rel="stylesheet" href="assets/css/whishlist.css">
 </head>
 <body>
 <jsp:include page="templates/header.jsp" />
@@ -33,14 +34,22 @@
         </c:when>
     </c:choose>
 <c:if test="${not empty wishlist}">
-    <c:forEach var="product" items="${wishlist}">
-        <div class="item">
-            <h3>${product.proName}</h3>
-            <p>Giá: <f:formatNumber value="${product.price}"/>đ</p>
-            <a href="wishlist?action=remove&pid=${product.id}">Xoá khỏi yêu thích</a>
-        </div>
-    </c:forEach>
+    <div class="wishlist-container">
+        <c:forEach var="product" items="${wishlist}">
+            <div class="wishlist-item">
+                <div class="wishlist-image">
+                    <img src="${productImageMap[product]}" alt="${product.proName}" style="max-width:150px; max-height:150px;"/>
+                </div>
+                <div class="wishlist-info">
+                    <h3>${product.proName}</h3>
+                    <p>Giá: <f:formatNumber value="${product.price}" type="currency" currencySymbol="" /> đ</p>
+                    <a href="wishlist?action=remove&pid=${product.id}" class="remove-btn">Xoá khỏi yêu thích</a>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
 </c:if>
+
 
 
 <jsp:include page="templates/footer.jsp" />

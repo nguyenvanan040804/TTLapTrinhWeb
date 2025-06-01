@@ -140,7 +140,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
