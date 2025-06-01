@@ -242,6 +242,18 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         }
         return products;
     }
+    public Product mapResultSetToProduct(ResultSet rs) throws SQLException {
+        return new Product(
+                rs.getInt("id"),
+                rs.getString("proName"),
+                rs.getInt("price"),
+                rs.getString("description"),
+                rs.getString("thumb"),
+                rs.getInt("quantity"),
+                rs.getInt("cateId")
+        );
+    }
+
 
     public static void main(String[] args) {
         ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());

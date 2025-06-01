@@ -1,6 +1,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.demo.model.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -105,9 +106,9 @@
                 </div>
                 <div class="right">
                     <ul class="flexitem second-links">
-                        <li class="mobile-hide"><a href="#">
+                        <li class="mobile-hide"><a href="${pageContext.request.contextPath}/wishlist">
                             <div class="icon-large"><i class="ri-heart-line"></i></div>
-                            <div class="fly-item"><span class="item-number">0</span></div>
+                            <div class="fly-item"><span class="item-number">${fn:length(sessionScope.wishlist)}</span></div>
                         </a></li>
                         <li class="iscart">
                             <a href="#">
