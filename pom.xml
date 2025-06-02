@@ -79,7 +79,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- Gson -->
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -90,6 +90,28 @@
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5-fluent</artifactId>
             <version>5.2</version> <!-- Hoặc phiên bản mới hơn -->
+        </dependency>
+
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.16.0 </version>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>3.1.0</version> <!-- Hoặc 3.0.0 nếu bạn dùng Jakarta EE 9 -->
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- CDI nếu bạn dùng @Inject -->
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

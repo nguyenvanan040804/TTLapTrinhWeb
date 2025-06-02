@@ -36,6 +36,8 @@ public class ProductController extends HttpServlet {
         request.setAttribute("categories", categories);
 
 
+
+
         // Lấy dữ liệu từ form
         String proName = request.getParameter("proName");
         String priceStr = request.getParameter("price");
@@ -86,6 +88,7 @@ public class ProductController extends HttpServlet {
         }
 
         request.getRequestDispatcher("addProduct.jsp").forward(request, response);
+
     }
 }
 

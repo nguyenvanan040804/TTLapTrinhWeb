@@ -6,15 +6,19 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import vn.edu.hcmuaf.fit.demo.dao.impl.OrderDaoImpl;
 import vn.edu.hcmuaf.fit.demo.model.Cart;
 import vn.edu.hcmuaf.fit.demo.model.CartProduct;
+import vn.edu.hcmuaf.fit.demo.model.OrderItem;
 import vn.edu.hcmuaf.fit.demo.model.Product;
 import vn.edu.hcmuaf.fit.demo.service.impl.ProductServiceImpl;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/cart")
 public class CartController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("cart.jsp").forward(request, response);
@@ -33,6 +37,9 @@ public class CartController extends HttpServlet {
                     break;
                 case "remove":
                     removeFromCart(request, response);
+                    break;
+                case "checkout":
+                    checkoutCart(request, response);
                     break;
                 default:
                     response.sendRedirect("cart.jsp");
@@ -97,4 +104,43 @@ public class CartController extends HttpServlet {
         }
         response.sendRedirect("cart.jsp");
     }
+    private void checkoutCart(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+
+        // Kiểm tra đăng nhập
+        Integer userId = (Integer) session.getAttribute("userId");
+        if (userId == null) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
+
+        // Lấy giỏ hàng
+        Cart cart = (Cart) session.getAttribute("cart");
+        if (cart == null || cart.getItems().isEmpty()) {
+            response.sendRedirect("cart.jsp");
+            return;
+        }
+
+        // Tạo order và lưu vào DB
+        OrderDaoImpl orderDao = new OrderDaoImpl() {
+
+            public List<OrderItem> getOrderItemsByOrderId(int orderId) {
+                return List.of();
+            }
+        };
+        int orderId = orderDao.createOrder(userId);
+
+        // Thêm từng sản phẩm trong cart vào order_item
+        for (CartProduct item : cart.getItems().values()) {
+            orderDao.addOrderItem(orderId, item.getProductId(), item.getQuantity());
+        }
+
+        // Lưu orderId vào session để sử dụng trong checkout.jsp
+        session.setAttribute("orderId", orderId);
+
+        // Chuyển hướng tới trang checkout
+        response.sendRedirect("checkout");
+    }
+
+
 }
