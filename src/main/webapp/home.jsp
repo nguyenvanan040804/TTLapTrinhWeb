@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -139,7 +140,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
@@ -179,7 +180,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
@@ -211,7 +212,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}">v<i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
@@ -244,7 +245,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
@@ -276,7 +277,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
@@ -310,7 +311,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
@@ -343,7 +344,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
@@ -375,7 +376,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="<a href="wishlist?action=add&pid=${product.id}">"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
@@ -407,7 +408,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                                 </ul>
@@ -534,7 +535,7 @@
                                             </div>
                                             <div class="hoverable">
                                                 <ul>
-                                                    <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                    <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                     <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 </ul>
                                             </div>
@@ -616,7 +617,7 @@
                                                 </div>
                                                 <div class="hoverable">
                                                     <ul>
-                                                        <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                        <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                         <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     </ul>
                                                 </div>
@@ -953,7 +954,7 @@
                                                 </div>
                                                 <div class="hoverable">
                                                     <ul>
-                                                        <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                        <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                         <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                     </ul>
                                                 </div>
@@ -1034,7 +1035,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1053,7 +1054,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1072,7 +1073,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1091,7 +1092,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1110,7 +1111,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1129,7 +1130,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1148,7 +1149,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1167,7 +1168,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1186,7 +1187,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1205,7 +1206,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1224,7 +1225,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
@@ -1243,7 +1244,7 @@
                                         </div>
                                         <div class="hoverable">
                                             <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                                <li class="active"><a href="wishlist?action=add&pid=${product.id}"><i class="ri-heart-line"></i></a></li>
                                                 <li><a href=""><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>

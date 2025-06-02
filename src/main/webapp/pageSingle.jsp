@@ -83,7 +83,7 @@
                                                     </form>
                                                     <div class="wish-share">
                                                         <ul class="flexitem second-links">
-                                                            <li><a href="#">
+                                                            <li><a href="wishlist?action=add&pid=${proDetail.id}">
                                                                 <span class="icon-large"><i class="ri-heart-line"></i></span>
                                                                 <span>Yêu thích</span>
                                                             </a></li>

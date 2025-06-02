@@ -205,6 +205,28 @@ public class UserDaoImpl implements IUserDao {
         }
     }
 
+       public void insertUserGoogle(User user) {
+        String sql = "insert into users(roleId, userName, fullName, email, passWord, phone, address, status, code, googleId) " +
+                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, user.getRoleId());
+            ps.setString(2, user.getUserName());
+            ps.setString(3, user.getFullName());
+            ps.setString(4, user.getEmail());
+            ps.setString(5, user.getPassWord());
+            ps.setString(6, user.getPhone());
+            ps.setString(7, user.getAddress());
+            ps.setInt(8, user.getStatus());
+            ps.setString(9, user.getCode());
+            System.out.println(user.getGoogleId());
+            ps.setString(10, user.getGoogleId());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void update(User user) {
         String sql = "UPDATE users SET roleId = ?, userName = ?, fullName = ?, email = ?, " +
@@ -272,6 +294,34 @@ public class UserDaoImpl implements IUserDao {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public User findOneByGooleId(String googleId) {
+        String sql = "select * from users where googleId = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, googleId);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                User user = new User(
+                        rs.getInt("id"),
+                        rs.getInt("roleId"),
+                        rs.getString("userName"),
+                        rs.getString("fullName"),
+                        rs.getString("email"),
+                        rs.getString("passWord"),
+                        rs.getString("phone"),
+                        rs.getString("address"),
+                        rs.getInt("status"),
+                        rs.getString("code"));
+
+                user.setGoogleId(rs.getString("googleId"));
+                return user;
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
     }
     public boolean updatePassword(String username, String newPassword) {
         String sql = "UPDATE Account SET password = ? WHERE username = ?";

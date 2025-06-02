@@ -21,7 +21,7 @@ public class Email {
         boolean test = false;
         String toEmail = user.getEmail();
         String fromEmail = "anhtuan220704@gmail.com";
-        String password = "fdpm awfa djmt tqyb";
+        String password = "ixrd mahq uuae hrdb";
 
         try {
             // your host email smtp server details
@@ -61,7 +61,7 @@ public class Email {
         boolean test = false;
         String toEmail = user.getEmail();
         String fromEmail = "anhtuan220704@gmail.com";
-        String password = "fdpm awfa djmt tqyb";
+        String password = "ixrd mahq uuae hrdb";
 
         try {
             // your host email smtp server details
@@ -99,12 +99,10 @@ public class Email {
     }
 
     public Properties configEmail(Properties pr) {
-        pr.setProperty("mail.smtp.host", "smtp.gmail.com");
-        pr.setProperty("mail.smtp.port", "587");
-        pr.setProperty("mail.smtp.auth", "true");
-        pr.setProperty("mail.smtp.starttls.enable", "true");
-        pr.put("mail.smtp.socketFactory.port", "587");
-        pr.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        pr.put("mail.smtp.host", "smtp.gmail.com");
+        pr.put("mail.smtp.port", "587"); // Dùng TLS với port 587
+        pr.put("mail.smtp.auth", "true");
+        pr.put("mail.smtp.starttls.enable", "true"); // Bật TLS
         return pr;
     }
 
