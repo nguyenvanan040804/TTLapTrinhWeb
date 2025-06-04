@@ -13,7 +13,7 @@ import vn.edu.hcmuaf.fit.demo.service.impl.ProductServiceImpl;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/home")
+
 public class HomeController extends HttpServlet {
     private IObjectService<Product> productService = new ProductServiceImpl();
     private IObjectService<Category> cateService = new CateServiceImpl();
