@@ -111,10 +111,10 @@
                             <div class="fly-item"><span class="item-number">${fn:length(sessionScope.wishlist)}</span></div>
                         </a></li>
                         <li class="iscart">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/addtocart">
                                 <div class="icon-large">
                                     <i class="ri-shopping-cart-line"></i>
-                                    <div class="fly-item"><span class="item-number">0</span></div>
+                                    <div class="fly-item"><span class="item-number">${fn:length(sessionScope.cartlist)}</span></div>
                                 </div>
                                 <div class="icon-text">
                                     <div class="mini-text">Tổng</div>
@@ -124,7 +124,7 @@
                             <div class="empty-cart">
                                 <div class="content">
                                     <div class="empty-body">
-                                        <img src="./assets/img/no-cart.png" alt="">
+
                                         <span>Không có sản phẩm</span>
                                     </div>
                                 </div>

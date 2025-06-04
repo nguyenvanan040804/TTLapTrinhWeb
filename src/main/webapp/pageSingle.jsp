@@ -76,9 +76,9 @@
                                                     <span class="current"><f:formatNumber value="${proDetail.price}"/>đ</span>
                                                 </div>
                                                 <div class="actions">
-                                                    <form action="cart" method="post">
+                                                    <form action="addtocart" method="get">
                                                         <input type="hidden" name="action" value="add">
-                                                        <input type="hidden" name="productId" value="${proDetail.id}">
+                                                        <input type="hidden" name="pid" value="${proDetail.id}">
                                                         <button class="add-to-cart">Thêm giỏ hàng</button>
                                                     </form>
                                                     <div class="wish-share">
@@ -87,7 +87,8 @@
                                                                 <span class="icon-large"><i class="ri-heart-line"></i></span>
                                                                 <span>Yêu thích</span>
                                                             </a></li>
-                                                            <li><a href="#">
+                                                            <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://storevv.io.vn:8080/Project_LT_Web-1.0-SNAPSHOT/"
+                                                                   target="_blank">
                                                                 <span class="icon-large"><i class="ri-share-line"></i></span>
                                                                 <span>Chia sẻ</span>
                                                             </a></li>

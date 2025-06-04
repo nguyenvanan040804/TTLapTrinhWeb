@@ -24,7 +24,7 @@ public class PaymentController extends HttpServlet {
     private static final String VNP_URL = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
     private static final String VNP_TMN_CODE = "4SA5TVRY";
     private static final String VNP_HASH_SECRET = "8FPNIMCYWMLMHSARSA18WTCIQZOFASWY";
-    private static final String RETURN_URL = "https://8b7a-2001-ee0-1b3d-6603-95a8-c698-a445-817c.ngrok-free.app/Project_LT_Web_war/vnpay_return";
+    private static final String RETURN_URL = "http://35.77.213.212:8080/Project_LT_Web-1.0-SNAPSHOT/vnpay_return";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
