@@ -529,7 +529,7 @@
                                         <div class="item">
                                         <div class="media">
                                             <div class="thumbnail object-cover">
-                                                <a href="#" data-id="${product.id}">
+                                                <a href="detail?pid=${product.id}" data-id="${product.id}">
                                                     <img src="${product.thumb}" alt="${product.proName}">
                                                 </a>
                                             </div>
@@ -611,7 +611,7 @@
                                         <div class="item">
                                             <div class="media">
                                                 <div class="thumbnail object-cover">
-                                                    <a href="#" data-id="${product.id}">
+                                                    <a href="detail?pid=${product.id}" data-id="${product.id}">
                                                         <img src="${product.thumb}" alt="${product.proName}">
                                                     </a>
                                                 </div>
@@ -948,7 +948,7 @@
                                         <div class="item">
                                             <div class="media">
                                                 <div class="thumbnail object-cover">
-                                                    <a href="#" data-id="${product.id}">
+                                                    <a href="detail?pid=${product.id}" data-id="${product.id}">
                                                         <img src="${product.thumb}" alt="${product.proName}">
                                                     </a>
                                                 </div>

@@ -254,6 +254,16 @@ public class ProductDaoImpl implements IObjectDao<Product> {
         );
     }
 
+    public void delete(int id) {
+        String sql = "DELETE FROM products WHERE id = ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Lỗi khi xóa sản phẩm", e);
+        }
+    }
+
 
     public static void main(String[] args) {
         ProductDaoImpl productDao = new ProductDaoImpl(DBConnect.getConnect());

@@ -34,6 +34,7 @@
       <th>Ảnh</th>
       <th>Số lượng</th>
       <th>Danh mục</th>
+      <th>Xóa</th>
     </tr>
 
     <%
@@ -46,21 +47,33 @@
       <td><%= product.getProName() %></td>
       <td><%= product.getPrice() %></td>
       <td><%= product.getDescription() %></td>
-      <td><img src="<%= product.getThumb() %>" alt="Ảnh sản phẩm"></td>
+      <td>
+        <p><%= product.getThumb() %></p>
+        <img src="<%= product.getThumb() %>" alt="Ảnh sản phẩm">
+      </td>
       <td><%= product.getQuantity() %></td>
       <td><%= product.getCateId() %></td>
+      <td>
+        <form action="${pageContext.request.contextPath}/admin/deleteProduct" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">
+          <input type="hidden" name="id" value="<%= product.getId() %>">
+          <button type="submit" class="btn btn-danger btn-sm">
+            <i class="fas fa-trash-alt"></i> Xóa
+          </button>
+        </form>
+      </td>
     </tr>
     <%
       }
     } else {
     %>
     <tr>
-      <td colspan="7">Không có sản phẩm nào.</td>
+      <td colspan="8">Không có sản phẩm nào.</td>
     </tr>
     <%
       }
     %>
   </table>
+
 </div>
 
 </body>
