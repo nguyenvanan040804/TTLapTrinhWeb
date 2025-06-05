@@ -5,7 +5,7 @@ public class Iconstant {
 
     public static final String GOOGLE_CLIENT_SECRET = "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";
 
-    public static final String GOOGLE_REDIRECT_URI = "http://localhost:8080/Project_LT_Web_war/google-login";
+    public static final String GOOGLE_REDIRECT_URI = "http://storevv.io.vn:8080/Project_LT_Web-1.0-SNAPSHOT/google-login";
 
     public static final String GOOGLE_GRANT_TYPE = "authorization_code";
 

@@ -52,7 +52,7 @@
                     <div class="field input-field2">
                         <a href="https://accounts.google.com/o/oauth2/auth?scope=email profile openid
 
-&redirect_uri=http://localhost:8080/Project_LT_Web_war/google-login
+&redirect_uri=http://storevv.io.vn:8080/Project_LT_Web-1.0-SNAPSHOT/google-login
 
 &response_type=code
 
