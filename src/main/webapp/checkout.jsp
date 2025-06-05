@@ -117,7 +117,7 @@
                                 <h4>Phương thức giao hàng:</h4>
                                 <p class="checkset">
                                     <input type="radio" checked>
-                                    <label>100.000đ - Phương thức mặc định</label>
+                                    <label>Thanh toán với VNPay</label>
                                 </p>
                             </div>
                             <div class="primary-checkout">
